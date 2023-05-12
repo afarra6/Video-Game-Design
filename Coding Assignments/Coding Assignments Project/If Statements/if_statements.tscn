@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cea8kttfx4ia8"]
+
+[ext_resource type="Script" path="res://If Statements/If Statements.gd" id="1_271qm"]
+[ext_resource type="Script" path="res://If Statements/TextureRect.gd" id="2_21jm2"]
+
+[node name="If Statements" type="Node2D" node_paths=PackedStringArray("pos_node")]
+script = ExtResource("1_271qm")
+pos_node = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_21jm2")

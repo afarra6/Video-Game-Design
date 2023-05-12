@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d01c4b5fjtyr3"]
+
+[ext_resource type="Texture2D" uid="uid://cjlcx1m7qj8qs" path="res://RigidAndStaticBackground.jpg" id="1_n3rbu"]
+
+[node name="Main" type="TextureRect"]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_n3rbu")
+expand_mode = 1
