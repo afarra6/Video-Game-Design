@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsvpph6kejeyc"]
+
+[ext_resource type="Texture2D" uid="uid://cgbhxqbogsctj" path="res://ColorRectBackground.jpg" id="1_tqnuo"]
+
+[node name="TextureRect" type="TextureRect"]
+offset_right = 1150.0
+offset_bottom = 647.0
+texture = ExtResource("1_tqnuo")
+expand_mode = 1
+metadata/_edit_lock_ = true

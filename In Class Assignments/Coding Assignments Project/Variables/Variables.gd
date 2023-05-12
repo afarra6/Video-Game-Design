@@ -20,11 +20,19 @@ extends Node2D
 
 
 
+#Below is the ready function. This function runs one time when 
 
 #5: Inside the function below, create a local variable with the default string "local" 
-# and print all of your variables to the console
 func _ready():
 	
+	
+	#5: Create a local variable with the default string of your name
+	
+	
+	
+	
+	#6: Print all of your variables to the console, run your scene, screenshot your console and add it to your google doc
+	# for this assignment
 	
 	
 	
