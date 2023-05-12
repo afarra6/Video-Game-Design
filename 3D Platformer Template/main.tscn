@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi2wv20dgm7u8"]
+
+[ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="1_afut6"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_hd6j4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c0ami"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ebpnd"]
+sky_top_color = Color(0.258824, 0.447059, 0.72549, 1)
+sky_curve = 0.356762
+ground_curve = 0.0492458
+sun_angle_max = 360.0
+sun_curve = 0.00640332
+
+[sub_resource type="Sky" id="Sky_dothq"]
+sky_material = SubResource("ProceduralSkyMaterial_ebpnd")
+
+[sub_resource type="Environment" id="Environment_h43om"]
+background_mode = 2
+sky = SubResource("Sky_dothq")
+
+[node name="Main" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("WorldBoundaryShape3D_hd6j4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_c0ami")
+
+[node name="Player" parent="." instance=ExtResource("1_afut6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0265921, 0, -0.329639)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 16, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h43om")
