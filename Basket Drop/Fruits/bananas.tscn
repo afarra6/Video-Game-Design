@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://2dpqx0jpgxep"]
+
+[ext_resource type="Texture2D" uid="uid://uukucv5nlm05" path="res://Fruits/pngtree-a-bunch-of-banana-cartoon-japanese-vector-material-image_2279826-removebg-preview.png" id="1_ivlik"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xatrb"]
+radius = 50.0
+
+[node name="Bananas" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xatrb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, -6)
+scale = Vector2(0.294329, 0.294329)
+texture = ExtResource("1_ivlik")

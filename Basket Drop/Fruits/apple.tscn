@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://kwchiii84kvp"]
+
+[ext_resource type="Texture2D" uid="uid://cmab40vwg6gyn" path="res://Fruits/kisspng-clip-art-drawing-portable-network-graphics-image-c-other-club-penguin-cutouts-5c3d8227646a92.3012681215475348874113-removebg-preview.png" id="1_ln5pt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xatrb"]
+radius = 50.0
+
+[node name="Apple" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xatrb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.98643, -4.23855)
+scale = Vector2(0.25812, 0.25812)
+texture = ExtResource("1_ln5pt")
