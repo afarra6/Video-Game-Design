@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjw6n6yw2sd3d"]
+
+[ext_resource type="Script" path="res://Signals/signals.gd" id="1_xj52m"]
+[ext_resource type="Script" path="res://Signals/Label.gd" id="2_86qhu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1w4dt"]
+font_size = 32
+
+[node name="Signals" type="Node2D"]
+script = ExtResource("1_xj52m")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Label" type="Label" parent="."]
+offset_left = 543.0
+offset_top = 299.0
+offset_right = 637.0
+offset_bottom = 347.0
+text = "LABEL"
+label_settings = SubResource("LabelSettings_1w4dt")
+script = ExtResource("2_86qhu")
