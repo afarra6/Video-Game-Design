@@ -1,0 +1,270 @@
+[gd_scene load_steps=8 format=3 uid="uid://crt65rrkp0rmq"]
+
+[ext_resource type="Script" path="res://Applying Forces/applying_forces.gd" id="1_g0fye"]
+[ext_resource type="Texture2D" uid="uid://ccvmh1jnf54aq" path="res://Applying Forces/sprites/basketball.png" id="2_cbwdr"]
+[ext_resource type="Texture2D" uid="uid://cymtkbc85revh" path="res://Applying Forces/sprites/football.png" id="3_fbi63"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqxkj"]
+size = Vector2(1094, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru7hi"]
+size = Vector2(20, 100.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1kp5v"]
+radius = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n6nid"]
+radius = 19.0
+height = 66.0
+
+[node name="Applying Forces" type="Node2D"]
+script = ExtResource("1_g0fye")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(568, 582)
+shape = SubResource("RectangleShape2D_oqxkj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(568, 377)
+shape = SubResource("RectangleShape2D_oqxkj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(568, 171)
+shape = SubResource("RectangleShape2D_oqxkj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(27, 422)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_oqxkj")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1120, 422)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_oqxkj")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(568, -12)
+shape = SubResource("RectangleShape2D_oqxkj")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = 11.0
+offset_top = -33.0
+offset_right = 1140.0
+offset_bottom = 7.0
+
+[node name="ColorRect2" type="ColorRect" parent="StaticBody2D"]
+offset_left = 11.0
+offset_top = 360.0
+offset_right = 1140.0
+offset_bottom = 400.0
+
+[node name="ColorRect3" type="ColorRect" parent="StaticBody2D"]
+offset_left = 9.0
+offset_top = 151.0
+offset_right = 1138.0
+offset_bottom = 191.0
+
+[node name="ColorRect4" type="ColorRect" parent="StaticBody2D"]
+offset_left = 11.0
+offset_top = 561.0
+offset_right = 1140.0
+offset_bottom = 601.0
+
+[node name="ColorRect5" type="ColorRect" parent="StaticBody2D"]
+offset_left = 5.0
+offset_top = 791.0
+offset_right = 1134.0
+offset_bottom = 831.0
+rotation = -1.57079
+
+[node name="ColorRect6" type="ColorRect" parent="StaticBody2D"]
+offset_left = 1104.0
+offset_top = 791.0
+offset_right = 2233.0
+offset_bottom = 831.0
+rotation = -1.57079
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(837, 38.75)
+shape = SubResource("RectangleShape2D_ru7hi")
+
+[node name="ColorRect8" type="ColorRect" parent="StaticBody2D/CollisionShape2D7"]
+offset_left = -10.0
+offset_top = -58.75
+offset_right = 13.0
+offset_bottom = 50.25
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(242, 32)
+shape = SubResource("RectangleShape2D_ru7hi")
+
+[node name="ColorRect7" type="ColorRect" parent="StaticBody2D/CollisionShape2D8"]
+offset_left = -14.0
+offset_top = -52.0
+offset_right = 9.0
+offset_bottom = 57.0
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(837, 335)
+shape = SubResource("RectangleShape2D_ru7hi")
+
+[node name="ColorRect8" type="ColorRect" parent="StaticBody2D/CollisionShape2D9"]
+offset_left = -10.0
+offset_top = -58.75
+offset_right = 13.0
+offset_bottom = 50.25
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(238, 344)
+shape = SubResource("RectangleShape2D_ru7hi")
+
+[node name="ColorRect8" type="ColorRect" parent="StaticBody2D/CollisionShape2D10"]
+offset_left = -10.0
+offset_top = -58.75
+offset_right = 13.0
+offset_bottom = 50.25
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(493, 550)
+shape = SubResource("RectangleShape2D_ru7hi")
+
+[node name="ColorRect8" type="ColorRect" parent="StaticBody2D/CollisionShape2D11"]
+offset_left = -10.0
+offset_top = -58.75
+offset_right = 13.0
+offset_bottom = 50.25
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(645, 545)
+shape = SubResource("RectangleShape2D_ru7hi")
+
+[node name="ColorRect8" type="ColorRect" parent="StaticBody2D/CollisionShape2D12"]
+offset_left = -10.0
+offset_top = -58.75
+offset_right = 13.0
+offset_bottom = 50.25
+
+[node name="Label" type="Label" parent="StaticBody2D"]
+offset_left = 291.0
+offset_top = 17.0
+offset_right = 801.0
+offset_bottom = 43.0
+text = "apply a force to each rigidbody to move them into their rooms"
+
+[node name="Label" type="Label" parent="StaticBody2D/Label"]
+offset_left = -9.0
+offset_top = 188.0
+offset_right = 503.0
+offset_bottom = 214.0
+text = "apply an impulse to each rigidbody to move them into their rooms"
+
+[node name="Label2" type="Label" parent="StaticBody2D/Label"]
+offset_left = 20.0
+offset_top = 393.0
+offset_right = 530.0
+offset_bottom = 419.0
+text = "apply an impulse to each rigidbody to move them into the center"
+
+[node name="Basketball2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(199, 32)
+scale = Vector2(0.102778, 0.102778)
+texture = ExtResource("2_cbwdr")
+
+[node name="Football" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(893, 32)
+scale = Vector2(0.133333, 0.133333)
+texture = ExtResource("3_fbi63")
+
+[node name="Basketball3" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(199, 226)
+scale = Vector2(0.102778, 0.102778)
+texture = ExtResource("2_cbwdr")
+
+[node name="Football2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(893, 226)
+scale = Vector2(0.133333, 0.133333)
+texture = ExtResource("3_fbi63")
+
+[node name="Basketball" type="RigidBody2D" parent="."]
+position = Vector2(404, 134)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basketball"]
+position = Vector2(-28, -7)
+shape = SubResource("CircleShape2D_1kp5v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Basketball"]
+position = Vector2(-28, -7)
+scale = Vector2(0.127778, 0.127778)
+texture = ExtResource("2_cbwdr")
+
+[node name="Football" type="RigidBody2D" parent="."]
+position = Vector2(739, 134)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Football"]
+position = Vector2(-28, -7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n6nid")
+
+[node name="Sprite2D" type="Sprite2D" parent="Football"]
+position = Vector2(-28, -7)
+scale = Vector2(0.127778, 0.127778)
+texture = ExtResource("3_fbi63")
+
+[node name="Basketball2" type="RigidBody2D" parent="."]
+position = Vector2(404, 329)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basketball2"]
+position = Vector2(-28, -7)
+shape = SubResource("CircleShape2D_1kp5v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Basketball2"]
+position = Vector2(-28, -7)
+scale = Vector2(0.127778, 0.127778)
+texture = ExtResource("2_cbwdr")
+
+[node name="Football2" type="RigidBody2D" parent="."]
+position = Vector2(739, 342)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Football2"]
+position = Vector2(-28, -7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n6nid")
+
+[node name="Sprite2D" type="Sprite2D" parent="Football2"]
+position = Vector2(-28, -7)
+scale = Vector2(0.127778, 0.127778)
+texture = ExtResource("3_fbi63")
+
+[node name="Football3" type="RigidBody2D" parent="."]
+position = Vector2(945, 538)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Football3"]
+position = Vector2(-28, -7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n6nid")
+
+[node name="Sprite2D" type="Sprite2D" parent="Football3"]
+position = Vector2(-28, -7)
+scale = Vector2(0.127778, 0.127778)
+texture = ExtResource("3_fbi63")
+
+[node name="Basketball3" type="RigidBody2D" parent="."]
+position = Vector2(249, 534)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basketball3"]
+position = Vector2(-28, -7)
+shape = SubResource("CircleShape2D_1kp5v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Basketball3"]
+position = Vector2(-28, -7)
+scale = Vector2(0.127778, 0.127778)
+texture = ExtResource("2_cbwdr")
