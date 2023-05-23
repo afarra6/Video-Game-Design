@@ -155,6 +155,7 @@ offset_bottom = 43.0
 text = "apply a force to each rigidbody to move them into their rooms"
 
 [node name="Label" type="Label" parent="StaticBody2D/Label"]
+layout_mode = 0
 offset_left = -9.0
 offset_top = 188.0
 offset_right = 503.0
@@ -162,6 +163,7 @@ offset_bottom = 214.0
 text = "apply an impulse to each rigidbody to move them into their rooms"
 
 [node name="Label2" type="Label" parent="StaticBody2D/Label"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 393.0
 offset_right = 530.0
