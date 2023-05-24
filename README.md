@@ -22,3 +22,8 @@ And GDScript specific concepts including:
 * The ready() function
 * Exporting variables
 * Creating signals
+
+
+# Engine assignments
+
+Engine Assignments require the students to create nodes, resources, or other non-scripting resources in the engine. 
