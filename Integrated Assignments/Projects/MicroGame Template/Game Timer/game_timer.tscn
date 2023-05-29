@@ -1,0 +1,143 @@
+[gd_scene load_steps=9 format=3 uid="uid://2etmxbu5vid0"]
+
+[ext_resource type="Script" path="res://Game Timer/game_timer.gd" id="1_duo3e"]
+[ext_resource type="Script" path="res://Game Timer/time_bar.gd" id="2_l1wf4"]
+[ext_resource type="FontFile" uid="uid://b0854xf1shyem" path="res://Game Timer/ARCADE.TTF" id="3_m8ibn"]
+[ext_resource type="AudioStream" uid="uid://b6rockl4fwd8p" path="res://TimerSound.wav" id="4_74d8l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t7xu8"]
+font = ExtResource("3_m8ibn")
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_con5u"]
+font = ExtResource("3_m8ibn")
+font_size = 128
+
+[sub_resource type="Animation" id="Animation_qjhrq"]
+resource_name = "Start"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["3", "2", "1", "GO!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.9, 2, 2.9, 3, 3.9, 4, 5),
+"transitions": PackedFloat32Array(1, 12.996, 1, 10.1965, 1, 17.7531, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0), Vector2(1, 1), Vector2(0, 0), Vector2(1, 1), Vector2(0, 0), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_74d8l")
+}],
+"times": PackedFloat32Array(1)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x15xf"]
+_data = {
+"Start": SubResource("Animation_qjhrq")
+}
+
+[node name="Game Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_duo3e")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 604.0
+offset_right = 1150.0
+offset_bottom = 631.0
+show_percentage = false
+script = ExtResource("2_l1wf4")
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 264.0
+offset_top = 243.0
+offset_right = 867.0
+offset_bottom = 375.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_t7xu8")
+
+[node name="Pivot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 592.0
+offset_top = 280.0
+offset_right = 592.0
+offset_bottom = 280.0
+scale = Vector2(1e-05, 1e-05)
+metadata/_edit_group_ = true
+
+[node name="StartTimer" type="Label" parent="Pivot"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -66.0
+offset_right = 100.5
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "GO!"
+label_settings = SubResource("LabelSettings_con5u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/StartTimer"]
+autoplay = "Start"
+libraries = {
+"": SubResource("AnimationLibrary_x15xf")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="Pivot/StartTimer/AnimationPlayer" to="ProgressBar" method="_on_animation_player_animation_finished"]

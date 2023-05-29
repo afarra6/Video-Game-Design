@@ -1,0 +1,257 @@
+[gd_scene load_steps=22 format=3 uid="uid://d1whhvwveg4b2"]
+
+[ext_resource type="Script" path="res://Scene Handler/Scene Handler.gd" id="1_qpkbv"]
+[ext_resource type="Shader" uid="uid://c77jqhqbdvik3" path="res://Scene Handler/scene_handler_background.tres" id="2_r1bdv"]
+[ext_resource type="FontFile" uid="uid://b0854xf1shyem" path="res://Game Timer/ARCADE.TTF" id="3_a5ch8"]
+[ext_resource type="PackedScene" uid="uid://b2gm3utpwtssb" path="res://Health/health.tscn" id="4_y6tsg"]
+[ext_resource type="Script" path="res://Scene Handler/StartScreenHider.gd" id="5_bp15h"]
+[ext_resource type="StyleBox" uid="uid://c2iwhovea6hta" path="res://Scene Handler/button_color.tres" id="5_ek4ra"]
+[ext_resource type="AudioStream" uid="uid://4kvcqys65mvo" path="res://HiHats.wav" id="5_g66gd"]
+[ext_resource type="AudioStream" uid="uid://b7ud5hmhhe5x7" path="res://Lose_Jingle.wav" id="6_wgrcm"]
+[ext_resource type="AudioStream" uid="uid://81bsvgqjrhj5" path="res://Win_Jingle.wav" id="7_6aqxb"]
+[ext_resource type="AudioStream" uid="uid://dmjpcnqw817jl" path="res://Start_Menu_Stav.wav" id="7_tnrxd"]
+[ext_resource type="AudioStream" uid="uid://w58vqo2kfam0" path="res://Start_Menu_Music.wav" id="8_m1n7m"]
+[ext_resource type="Script" path="res://Scene Handler/StartMusic.gd" id="9_u8q8m"]
+[ext_resource type="AudioStream" uid="uid://c6lv07h1hyrjk" path="res://Start_Menu_Press.wav" id="11_3504a"]
+
+[sub_resource type="Animation" id="Animation_po8nk"]
+resource_name = "transition_ready"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1, 1), Vector2(1, 1), Vector2(0.01, 0.01)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ReadyMusic:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/Score:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7, 1.7, 2.7, 3.7, 4.7, 5.7),
+"transitions": PackedFloat32Array(0.594604, 0.594604, 0.594604, 0.594604, 0.594604, 0.594604),
+"update": 0,
+"values": [Vector2(546.5, 330), Vector2(546.5, 338), Vector2(546.5, 330), Vector2(546.5, 338), Vector2(546.5, 330), Vector2(546.5, 338)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/Ready?:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(340, 200), Vector2(340, 208), Vector2(340, 200), Vector2(340, 208), Vector2(340, 200), Vector2(340, 208)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect/Health:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 1.3, 2.3, 3.3, 4.3, 5.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-7.5, -18), Vector2(-7.5, 10), Vector2(-7.5, -18), Vector2(-7.5, 10), Vector2(-7.5, -18), Vector2(-7.5, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gbwhh"]
+_data = {
+"transition_ready": SubResource("Animation_po8nk")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekr2m"]
+shader = ExtResource("2_r1bdv")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7naqh"]
+font = ExtResource("3_a5ch8")
+font_size = 164
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fmtb8"]
+font = ExtResource("3_a5ch8")
+font_size = 132
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.972549)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6hgv"]
+shader = ExtResource("2_r1bdv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkff7"]
+bg_color = Color(0.752941, 0.572549, 0.203922, 0.615686)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 5.0
+expand_margin_top = 20.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3vlcq"]
+
+[node name="Scene Handler" type="Node"]
+script = ExtResource("1_qpkbv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gbwhh")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 2
+material = SubResource("ShaderMaterial_ekr2m")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.5
+offset_top = -323.5
+offset_right = 576.5
+offset_bottom = 323.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.01, 0.01)
+pivot_offset = Vector2(575, 320)
+size_flags_horizontal = 4
+
+[node name="Ready?" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.5
+offset_top = -115.5
+offset_right = 273.5
+offset_bottom = 52.5003
+grow_horizontal = 2
+grow_vertical = 2
+text = "READY?"
+label_settings = SubResource("LabelSettings_7naqh")
+
+[node name="Health" parent="ColorRect" instance=ExtResource("4_y6tsg")]
+layout_mode = 1
+offset_left = -7.5
+offset_top = 10.0
+offset_right = -7.5
+offset_bottom = 10.0
+
+[node name="Score" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = 14.5
+offset_right = 30.0
+offset_bottom = 150.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_fmtb8")
+
+[node name="ReadyMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_g66gd")
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_wgrcm")
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6aqxb")
+
+[node name="LevelDelay" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="StartScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_bp15h")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="StartScreen"]
+material = SubResource("ShaderMaterial_q6hgv")
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 662.0
+
+[node name="Button" type="Button" parent="StartScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 426.0
+offset_top = 302.0
+offset_right = 680.0
+offset_bottom = 418.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_a5ch8")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = ExtResource("5_ek4ra")
+theme_override_styles/hover = ExtResource("5_ek4ra")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qkff7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3vlcq")
+text = "START"
+
+[node name="StartStab" type="AudioStreamPlayer" parent="StartScreen"]
+stream = ExtResource("7_tnrxd")
+autoplay = true
+
+[node name="StartMusic" type="AudioStreamPlayer" parent="StartScreen"]
+stream = ExtResource("8_m1n7m")
+script = ExtResource("9_u8q8m")
+
+[node name="StartButton" type="AudioStreamPlayer" parent="StartScreen"]
+stream = ExtResource("11_3504a")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="StartScreen" method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="LevelDelay" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="StartScreen/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="StartScreen/Button" to="StartScreen" method="_on_button_pressed"]
+[connection signal="finished" from="StartScreen/StartStab" to="StartScreen/StartMusic" method="_on_start_stab_finished"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2gm3utpwtssb"]
+
+[ext_resource type="Script" path="res://Health/health.gd" id="1_qf3b5"]
+[ext_resource type="Texture2D" uid="uid://cimaautlnjd7v" path="res://Health/heart.png" id="2_81xer"]
+[ext_resource type="Shader" uid="uid://dv0ihr4ql3ihm" path="res://Health/empty_heart.tres" id="3_kiw5i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6iitd"]
+shader = ExtResource("3_kiw5i")
+
+[node name="Health" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qf3b5")
+current_health = 2
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(406.5, 515)
+scale = Vector2(0.184483, 0.184483)
+texture = ExtResource("2_81xer")
+metadata/_edit_group_ = true
+
+[node name="Heart2" type="Sprite2D" parent="."]
+position = Vector2(520, 515)
+scale = Vector2(0.184483, 0.184483)
+texture = ExtResource("2_81xer")
+metadata/_edit_group_ = true
+
+[node name="Heart3" type="Sprite2D" parent="."]
+position = Vector2(632.5, 515)
+scale = Vector2(0.184483, 0.184483)
+texture = ExtResource("2_81xer")
+metadata/_edit_group_ = true
+
+[node name="Heart4" type="Sprite2D" parent="."]
+position = Vector2(745, 515)
+scale = Vector2(0.184483, 0.184483)
+texture = ExtResource("2_81xer")
+metadata/_edit_group_ = true
+
+[node name="Empty1" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_6iitd")
+position = Vector2(406.5, 516.5)
+scale = Vector2(0.184483, 0.184483)
+texture = ExtResource("2_81xer")
+metadata/_edit_group_ = true
+
+[node name="Empty2" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_6iitd")
+position = Vector2(520, 516.5)
+scale = Vector2(0.184483, 0.184483)
+texture = ExtResource("2_81xer")
+metadata/_edit_group_ = true
+
+[node name="Empty3" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_6iitd")
+position = Vector2(632.5, 516.5)
+scale = Vector2(0.184483, 0.184483)
+texture = ExtResource("2_81xer")
+metadata/_edit_group_ = true
+
+[node name="Empty4" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_6iitd")
+position = Vector2(745, 516.5)
+scale = Vector2(0.184483, 0.184483)
+texture = ExtResource("2_81xer")
+metadata/_edit_group_ = true
