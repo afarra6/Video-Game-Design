@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://chxx7780cdpux"]
+
+[ext_resource type="Script" path="res://Area Nodes/area_node.gd" id="1_f5cbl"]
+[ext_resource type="Texture2D" uid="uid://crkyjfvwltxdn" path="res://Area Nodes/Area Background.jpg" id="1_mmnc3"]
+[ext_resource type="Script" path="res://Area Nodes/Score.gd" id="2_0xyj5"]
+
+[sub_resource type="SystemFont" id="SystemFont_3up0l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eo6vi"]
+font = SubResource("SystemFont_3up0l")
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+
+[node name="Area Node" type="Node2D"]
+script = ExtResource("1_f5cbl")
+
+[node name="AreaBackground" type="Sprite2D" parent="."]
+position = Vector2(574.222, 326)
+scale = Vector2(0.598148, 0.598148)
+texture = ExtResource("1_mmnc3")
+metadata/_edit_lock_ = true
+
+[node name="Score" type="Label" parent="."]
+offset_left = 1013.0
+offset_top = 26.0
+offset_right = 1059.0
+offset_bottom = 139.0
+text = "0"
+label_settings = SubResource("LabelSettings_eo6vi")
+script = ExtResource("2_0xyj5")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-105, 242)

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjlcx1m7qj8qs"
-path="res://.godot/imported/RigidAndStaticBackground.jpg-cae14694f14a8644ae4edf0c52113904.ctex"
+path="res://.godot/imported/RigidAndStaticBackground.jpg-8f8175c6cd743da123b0df3eab2eb5d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RigidAndStaticBackground.jpg"
-dest_files=["res://.godot/imported/RigidAndStaticBackground.jpg-cae14694f14a8644ae4edf0c52113904.ctex"]
+source_file="res://Static and Rigidbodies/RigidAndStaticBackground.jpg"
+dest_files=["res://.godot/imported/RigidAndStaticBackground.jpg-8f8175c6cd743da123b0df3eab2eb5d2.ctex"]
 
 [params]
 
