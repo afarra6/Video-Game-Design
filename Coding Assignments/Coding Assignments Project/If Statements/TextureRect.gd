@@ -8,3 +8,4 @@ func _process(delta):
 	position = Vector2(pos_x * 100,0)
 	
 	print(position)
+

@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="MicroGame Template"
+run/main_scene="res://Scene Handler/scene_handler.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="MicroGame Template"
