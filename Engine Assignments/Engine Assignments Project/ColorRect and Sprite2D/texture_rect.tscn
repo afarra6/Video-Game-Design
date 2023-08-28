@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsvpph6kejeyc"]
 
-[ext_resource type="Texture2D" uid="uid://cgbhxqbogsctj" path="res://ColorRect and Sprite2D/ColorRectBackground.jpg" id="1_3g7vx"]
+[ext_resource type="Texture2D" uid="uid://c2ulvqwmy7ojd" path="res://ColorRect and Sprite2D/ColorRectBackground.png" id="1_2bxth"]
 
 [node name="TextureRect" type="TextureRect"]
 offset_right = 1150.0
 offset_bottom = 647.0
-texture = ExtResource("1_3g7vx")
+texture = ExtResource("1_2bxth")
 expand_mode = 1
 metadata/_edit_lock_ = true
