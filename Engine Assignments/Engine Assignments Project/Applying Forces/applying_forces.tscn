@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://3krpbgpt435v"]
+[gd_scene load_steps=2 format=3 uid="uid://3krpbgpt435v"]
 
 [ext_resource type="Texture2D" uid="uid://br176jmnr33ml" path="res://Applying Forces/ApplyForce Background.png" id="1_k5hii"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mdxht"]
 
 [node name="Applying Forces" type="TextureRect"]
 offset_right = 1151.0
@@ -10,11 +8,3 @@ offset_bottom = 647.0
 texture = ExtResource("1_k5hii")
 expand_mode = 2
 metadata/_edit_lock_ = true
-
-[node name="ApplyForceBackground" type="Sprite2D" parent="."]
-position = Vector2(317, 357)
-texture = SubResource("CompressedTexture2D_mdxht")
-
-[node name="ApplyForceBackground2" type="Sprite2D" parent="."]
-position = Vector2(58, 388)
-texture = SubResource("CompressedTexture2D_mdxht")

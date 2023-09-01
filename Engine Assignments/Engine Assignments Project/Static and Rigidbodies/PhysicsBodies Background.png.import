@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjlcx1m7qj8qs"
-path="res://.godot/imported/RigidAndStaticBackground.jpg-8f8175c6cd743da123b0df3eab2eb5d2.ctex"
+uid="uid://1t37w5i44fks"
+path="res://.godot/imported/PhysicsBodies Background.png-8c9f2cdc0e18145d4d026fe4dceee022.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Static and Rigidbodies/RigidAndStaticBackground.jpg"
-dest_files=["res://.godot/imported/RigidAndStaticBackground.jpg-8f8175c6cd743da123b0df3eab2eb5d2.ctex"]
+source_file="res://Static and Rigidbodies/PhysicsBodies Background.png"
+dest_files=["res://.godot/imported/PhysicsBodies Background.png-8c9f2cdc0e18145d4d026fe4dceee022.ctex"]
 
 [params]
 

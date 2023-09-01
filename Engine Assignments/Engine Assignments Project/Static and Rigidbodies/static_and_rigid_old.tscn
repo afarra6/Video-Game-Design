@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://d01c4b5fjtyr3"]
 
-[ext_resource type="Texture2D" uid="uid://cjlcx1m7qj8qs" path="res://Static and Rigidbodies/RigidAndStaticBackground.jpg" id="1_5b0ux"]
+[ext_resource type="Texture2D" uid="uid://1t37w5i44fks" path="res://Static and Rigidbodies/PhysicsBodies Background.png" id="1_6e1od"]
 
 [node name="Main" type="TextureRect"]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_5b0ux")
+texture = ExtResource("1_6e1od")
 expand_mode = 1
 metadata/_edit_lock_ = true
