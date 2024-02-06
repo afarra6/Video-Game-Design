@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfpunj8qbf4n8"]
+
+[ext_resource type="Texture2D" uid="uid://cbvlaaf72syr5" path="res://Communicating/Communicating Background.png" id="1_cuqg6"]
+
+[node name="Communicating" type="TextureRect"]
+offset_right = 1148.0
+offset_bottom = 645.0
+texture = ExtResource("1_cuqg6")
+expand_mode = 1
+metadata/_edit_lock_ = true

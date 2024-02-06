@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgc8x8llf22r"
+path="res://.godot/imported/hq-explosion-6288.mp3-939cf5205fae730033b60e1e2ac717cc.mp3str"
+
+[deps]
+
+source_file="res://Example Game/Sounds/hq-explosion-6288.mp3"
+dest_files=["res://.godot/imported/hq-explosion-6288.mp3-939cf5205fae730033b60e1e2ac717cc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

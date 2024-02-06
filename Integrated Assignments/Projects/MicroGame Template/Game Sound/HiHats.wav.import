@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4kvcqys65mvo"
+path="res://.godot/imported/HiHats.wav-39916184a6b9d15a1a609bb4f9ec8b12.sample"
+
+[deps]
+
+source_file="res://Game Sound/HiHats.wav"
+dest_files=["res://.godot/imported/HiHats.wav-39916184a6b9d15a1a609bb4f9ec8b12.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

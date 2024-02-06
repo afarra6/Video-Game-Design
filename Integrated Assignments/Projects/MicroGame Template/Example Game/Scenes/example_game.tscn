@@ -1,0 +1,106 @@
+[gd_scene load_steps=14 format=3 uid="uid://cvbkatl4h4nkw"]
+
+[ext_resource type="PackedScene" uid="uid://2etmxbu5vid0" path="res://Game Timer/game_timer.tscn" id="1_5n04m"]
+[ext_resource type="Texture2D" uid="uid://cmvoynsgly78m" path="res://Example Game/Images/istockphoto-1411389613-170667a.webp" id="2_e5sj8"]
+[ext_resource type="PackedScene" uid="uid://dg6a4cp1mdhwf" path="res://Example Game/Scenes/finger.tscn" id="2_y6b3t"]
+[ext_resource type="PackedScene" uid="uid://dfjktbdxbiwtv" path="res://Example Game/Scenes/bomb.tscn" id="3_i2k3x"]
+[ext_resource type="PackedScene" uid="uid://pr2x21bvbbks" path="res://Example Game/Scenes/basket.tscn" id="5_0qp6x"]
+[ext_resource type="AudioStream" uid="uid://dr8a400dho5jj" path="res://Example Game/Sounds/ForestWaltz.wav" id="6_vrud0"]
+[ext_resource type="AudioStream" uid="uid://cn3q34klod70v" path="res://Example Game/Sounds/match-sizzle-02-104778.mp3" id="7_4q7mg"]
+[ext_resource type="AudioStream" uid="uid://bgc8x8llf22r" path="res://Example Game/Sounds/hq-explosion-6288.mp3" id="8_0tn4i"]
+
+[sub_resource type="Animation" id="Animation_witlw"]
+resource_name = "Push"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(155, 395), Vector2(455, 395)]
+}
+
+[sub_resource type="Animation" id="Animation_iacg5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(155, 395)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xudxc"]
+_data = {
+"Push": SubResource("Animation_witlw"),
+"RESET": SubResource("Animation_iacg5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0c0m"]
+size = Vector2(427, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4fk7"]
+size = Vector2(20, 501)
+
+[node name="Game Timer" instance=ExtResource("1_5n04m")]
+instruction_text = "Save!"
+
+[node name="Game" type="Node" parent="." index="6"]
+
+[node name="TextureRect" type="TextureRect" parent="Game" index="0"]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_e5sj8")
+
+[node name="Finger" parent="Game" index="1" instance=ExtResource("2_y6b3t")]
+position = Vector2(155, 395)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/Finger" index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_xudxc")
+}
+
+[node name="Basket" parent="Game" index="2" instance=ExtResource("5_0qp6x")]
+position = Vector2(569, 704)
+
+[node name="Bomb" parent="Game" index="3" instance=ExtResource("3_i2k3x")]
+position = Vector2(572, 62)
+
+[node name="WinArea" type="Area2D" parent="Game" index="4"]
+position = Vector2(920, 648)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/WinArea" index="0"]
+position = Vector2(20.5, 0)
+shape = SubResource("RectangleShape2D_u0c0m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Game/WinArea" index="1"]
+position = Vector2(230, -240.5)
+shape = SubResource("RectangleShape2D_b4fk7")
+
+[node name="Music" type="AudioStreamPlayer" parent="Game" index="5"]
+stream = ExtResource("6_vrud0")
+autoplay = true
+
+[node name="WinSound" parent="." index="7"]
+stream = ExtResource("7_4q7mg")
+volume_db = 0.0
+
+[node name="LoseSound" parent="." index="8"]
+stream = ExtResource("8_0tn4i")
+
+[connection signal="body_entered" from="Game/Finger/FingerAndHand" to="." method="_on_finger_and_hand_body_entered"]
+[connection signal="body_exited" from="Game/Basket/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Game/WinArea" to="." method="_on_win_area_body_entered"]
+
+[editable path="Game/Finger"]
+[editable path="Game/Basket"]

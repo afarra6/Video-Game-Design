@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6rockl4fwd8p"
+path="res://.godot/imported/TimerSound.wav-066f0caea1bcfe033e3789a22de6792b.sample"
+
+[deps]
+
+source_file="res://Game Sound/TimerSound.wav"
+dest_files=["res://.godot/imported/TimerSound.wav-066f0caea1bcfe033e3789a22de6792b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

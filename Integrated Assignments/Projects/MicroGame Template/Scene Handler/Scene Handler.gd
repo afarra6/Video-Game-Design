@@ -1,6 +1,6 @@
 extends Node
 
-@export var scene_array = [preload("res://Game Timer/game_timer.tscn")]
+@export var scene_array = [preload("res://Example Game/Scenes/example_game.tscn")]
 
 var score = 0
 
@@ -11,6 +11,7 @@ var lives = 4
 
 #Changes the scene
 func _switch_scene(scene):
+	
 	#Frees the previous micro-game scene
 	if get_child(6):
 		get_child(6).queue_free()
@@ -27,7 +28,7 @@ func _switch_scene(scene):
 #Removes one life, checks if the lives are zero
 func _on_health_down():
 	lives -= 1
-	$LoseSound.play()
+	
 	if lives <= 0:
 		_game_over()
 	else:
@@ -57,7 +58,7 @@ func _on_timer_timeout():
 
 #Plays the wind sound effect and increments score by one
 func _on_win():
-	$WinSound.play()
+	
 	score += 1
 	_next_level()
 	$ColorRect/Score.text = str(score)

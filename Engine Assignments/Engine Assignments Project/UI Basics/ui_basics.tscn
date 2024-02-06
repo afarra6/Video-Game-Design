@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckfbhnwsor42r"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nvm3e"]
+load_path = "res://.godot/imported/UIBasicsBackground.png-a4fd058813bd90e2e58cf470db3bfe2c.ctex"
+
+[node name="UIBasics" type="TextureRect"]
+offset_right = 1147.0
+offset_bottom = 645.0
+texture = SubResource("CompressedTexture2D_nvm3e")
+expand_mode = 1

@@ -1,9 +1,95 @@
-[gd_scene load_steps=9 format=3 uid="uid://2etmxbu5vid0"]
+[gd_scene load_steps=14 format=3 uid="uid://2etmxbu5vid0"]
 
-[ext_resource type="Script" path="res://Game Timer/game_timer.gd" id="1_duo3e"]
+[ext_resource type="Shader" uid="uid://c77jqhqbdvik3" path="res://Scene Handler/scene_handler_background.tres" id="2_0mct5"]
 [ext_resource type="Script" path="res://Game Timer/time_bar.gd" id="2_l1wf4"]
 [ext_resource type="FontFile" uid="uid://b0854xf1shyem" path="res://Game Timer/ARCADE.TTF" id="3_m8ibn"]
-[ext_resource type="AudioStream" uid="uid://b6rockl4fwd8p" path="res://TimerSound.wav" id="4_74d8l"]
+[ext_resource type="AudioStream" uid="uid://b6rockl4fwd8p" path="res://Game Sound/TimerSound.wav" id="4_f6mrf"]
+[ext_resource type="AudioStream" uid="uid://81bsvgqjrhj5" path="res://Game Sound/Win_Jingle.wav" id="5_5ljdt"]
+[ext_resource type="AudioStream" uid="uid://b7ud5hmhhe5x7" path="res://Game Sound/Lose_Jingle.wav" id="6_6wfir"]
+
+[sub_resource type="GDScript" id="GDScript_tj2p5"]
+script/source = "extends Control
+
+#This UI should be placed in your micro-game scene
+signal health_down
+
+signal win
+@export var instruction_text = \"Go!\"
+#Set condition to true when your player wins your micro-game
+var condition = false #Set this to true when the player wins
+var fail = false #Set this to true when the player fails
+var time_over = false
+var can_send = true
+
+func _ready():
+	var animation = $Pivot/StartTimer/AnimationPlayer.get_animation(\"Start\")
+	get_tree().paused = true
+	var track = 0 # or an integer
+	
+	var last_key = animation.track_get_key_count(track) - 1
+	animation.track_set_key_value(track, last_key, instruction_text)
+	
+	pass
+
+
+func _on_timer_timeout():
+	
+	time_over = true
+	pass 
+
+
+func _process(_delta):
+	
+	if condition == true and can_send:
+		win.emit()
+		$ProgressBar.running = false
+		can_send = false
+	
+	if fail and can_send:
+		health_down.emit()
+		$ProgressBar.running = false
+		can_send = false
+		
+	
+	
+	
+	if condition == false and time_over == true and can_send == true:
+		health_down.emit()
+		can_send = false
+		
+	
+	
+
+
+
+func _on_win_area_body_entered(body):
+	$Game/Music.stop()
+	$WinSound.play()
+	condition = true
+	pass # Replace with function body.
+
+
+func _on_finger_and_hand_body_entered(body):
+	
+	if body is RigidBody2D:
+		$Game/Music.stop()
+		$LoseSound.play()
+		fail = true
+		body.gravity_scale = 0
+		
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(body):
+	
+	
+	if body is RigidBody2D:
+		$Game/Music.stop()
+		$LoseSound.play()
+		fail = true
+		
+	pass # Replace with function body.
+"
 
 [sub_resource type="LabelSettings" id="LabelSettings_t7xu8"]
 font = ExtResource("3_m8ibn")
@@ -13,9 +99,24 @@ font_size = 128
 font = ExtResource("3_m8ibn")
 font_size = 128
 
+[sub_resource type="Animation" id="Animation_tclyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Node:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
 [sub_resource type="Animation" id="Animation_qjhrq"]
 resource_name = "Start"
-length = 5.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -23,7 +124,7 @@ tracks/0/path = NodePath(".:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 2, 3, 4),
+"times": PackedFloat32Array(0, 1, 2, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": ["3", "2", "1", "GO!"]
@@ -35,7 +136,7 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 5),
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -47,7 +148,7 @@ tracks/2/path = NodePath("..:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1, 1.9, 2, 2.9, 3, 3.9, 4, 5),
+"times": PackedFloat32Array(0, 0.9, 1, 1.9, 2, 2.9, 3, 4),
 "transitions": PackedFloat32Array(1, 12.996, 1, 10.1965, 1, 17.7531, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0, 0), Vector2(1, 1), Vector2(0, 0), Vector2(1, 1), Vector2(0, 0), Vector2(1, 1), Vector2(0, 0)]
@@ -62,21 +163,37 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("4_74d8l")
+"stream": ExtResource("4_f6mrf")
 }],
-"times": PackedFloat32Array(1)
+"times": PackedFloat32Array(0)
 }
 tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Node:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.2, 1.2), Vector2(1e-05, 1e-05)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x15xf"]
 _data = {
+"RESET": SubResource("Animation_tclyn"),
 "Start": SubResource("Animation_qjhrq")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jr0pu"]
+shader = ExtResource("2_0mct5")
 
 [node name="Game Timer" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_duo3e")
+script = SubResource("GDScript_tj2p5")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -84,6 +201,7 @@ one_shot = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 visible = false
+z_index = 3
 layout_mode = 0
 offset_top = 604.0
 offset_right = 1150.0
@@ -108,11 +226,10 @@ offset_left = 592.0
 offset_top = 280.0
 offset_right = 592.0
 offset_bottom = 280.0
-scale = Vector2(1e-05, 1e-05)
 metadata/_edit_group_ = true
 
 [node name="StartTimer" type="Label" parent="Pivot"]
-visible = false
+z_index = 7
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -126,18 +243,48 @@ offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "GO!"
+text = "3"
 label_settings = SubResource("LabelSettings_con5u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/StartTimer"]
+process_mode = 3
 autoplay = "Start"
 libraries = {
 "": SubResource("AnimationLibrary_x15xf")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+
+[node name="Node" type="Node2D" parent="."]
+position = Vector2(577, 331)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="ColorRect" type="ColorRect" parent="Node"]
+z_index = 5
+material = SubResource("ShaderMaterial_jr0pu")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -329.5
+offset_right = 575.0
+offset_bottom = 329.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5ljdt")
+volume_db = -20.0
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6wfir")
+volume_db = -20.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="animation_finished" from="Pivot/StartTimer/AnimationPlayer" to="ProgressBar" method="_on_animation_player_animation_finished"]

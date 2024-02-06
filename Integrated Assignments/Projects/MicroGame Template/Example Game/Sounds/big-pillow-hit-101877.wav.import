@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhp2pti34v5pw"
+path="res://.godot/imported/big-pillow-hit-101877.wav-3fc228984d3c8010c811632cb2add6aa.sample"
+
+[deps]
+
+source_file="res://Example Game/Sounds/big-pillow-hit-101877.wav"
+dest_files=["res://.godot/imported/big-pillow-hit-101877.wav-3fc228984d3c8010c811632cb2add6aa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

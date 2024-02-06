@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://8trv5tlkn88c"]
+
+[ext_resource type="Texture2D" uid="uid://dtqmas3iy5swh" path="res://UI and Signals/UIandSignals.png" id="1_iaxbt"]
+
+[node name="UI and Signals" type="TextureRect"]
+offset_right = 1150.0
+offset_bottom = 648.0
+texture = ExtResource("1_iaxbt")
+expand_mode = 1

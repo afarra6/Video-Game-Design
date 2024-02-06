@@ -4,15 +4,15 @@
 [ext_resource type="Shader" uid="uid://c77jqhqbdvik3" path="res://Scene Handler/scene_handler_background.tres" id="2_r1bdv"]
 [ext_resource type="FontFile" uid="uid://b0854xf1shyem" path="res://Game Timer/ARCADE.TTF" id="3_a5ch8"]
 [ext_resource type="PackedScene" uid="uid://b2gm3utpwtssb" path="res://Health/health.tscn" id="4_y6tsg"]
+[ext_resource type="AudioStream" uid="uid://4kvcqys65mvo" path="res://Game Sound/HiHats.wav" id="5_46eps"]
 [ext_resource type="Script" path="res://Scene Handler/StartScreenHider.gd" id="5_bp15h"]
 [ext_resource type="StyleBox" uid="uid://c2iwhovea6hta" path="res://Scene Handler/button_color.tres" id="5_ek4ra"]
-[ext_resource type="AudioStream" uid="uid://4kvcqys65mvo" path="res://HiHats.wav" id="5_g66gd"]
-[ext_resource type="AudioStream" uid="uid://b7ud5hmhhe5x7" path="res://Lose_Jingle.wav" id="6_wgrcm"]
-[ext_resource type="AudioStream" uid="uid://81bsvgqjrhj5" path="res://Win_Jingle.wav" id="7_6aqxb"]
-[ext_resource type="AudioStream" uid="uid://dmjpcnqw817jl" path="res://Start_Menu_Stav.wav" id="7_tnrxd"]
-[ext_resource type="AudioStream" uid="uid://w58vqo2kfam0" path="res://Start_Menu_Music.wav" id="8_m1n7m"]
+[ext_resource type="AudioStream" uid="uid://b7ud5hmhhe5x7" path="res://Game Sound/Lose_Jingle.wav" id="6_0uwgl"]
+[ext_resource type="AudioStream" uid="uid://81bsvgqjrhj5" path="res://Game Sound/Win_Jingle.wav" id="7_o6evf"]
 [ext_resource type="Script" path="res://Scene Handler/StartMusic.gd" id="9_u8q8m"]
-[ext_resource type="AudioStream" uid="uid://c6lv07h1hyrjk" path="res://Start_Menu_Press.wav" id="11_3504a"]
+[ext_resource type="AudioStream" uid="uid://dmjpcnqw817jl" path="res://Game Sound/Start_Menu_Stav.wav" id="10_mf8d3"]
+[ext_resource type="AudioStream" uid="uid://w58vqo2kfam0" path="res://Game Sound/Start_Menu_Music.wav" id="11_hb2f1"]
+[ext_resource type="AudioStream" uid="uid://c6lv07h1hyrjk" path="res://Game Sound/Start_Menu_Press.wav" id="13_px1gi"]
 
 [sub_resource type="Animation" id="Animation_po8nk"]
 resource_name = "transition_ready"
@@ -128,6 +128,7 @@ expand_margin_top = 20.0
 script = ExtResource("1_qpkbv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_gbwhh")
 }
@@ -191,13 +192,16 @@ text = "0"
 label_settings = SubResource("LabelSettings_fmtb8")
 
 [node name="ReadyMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_g66gd")
+stream = ExtResource("5_46eps")
+volume_db = -20.0
 
 [node name="LoseSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_wgrcm")
+stream = ExtResource("6_0uwgl")
+volume_db = -20.0
 
 [node name="WinSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_6aqxb")
+stream = ExtResource("7_o6evf")
+volume_db = -20.0
 
 [node name="LevelDelay" type="Timer" parent="."]
 wait_time = 5.0
@@ -217,6 +221,7 @@ material = SubResource("ShaderMaterial_q6hgv")
 layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 662.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="StartScreen"]
 layout_mode = 1
@@ -238,17 +243,21 @@ theme_override_styles/hover = ExtResource("5_ek4ra")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qkff7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3vlcq")
 text = "START"
+metadata/_edit_use_anchors_ = true
 
 [node name="StartStab" type="AudioStreamPlayer" parent="StartScreen"]
-stream = ExtResource("7_tnrxd")
+stream = ExtResource("10_mf8d3")
+volume_db = -20.0
 autoplay = true
 
 [node name="StartMusic" type="AudioStreamPlayer" parent="StartScreen"]
-stream = ExtResource("8_m1n7m")
+stream = ExtResource("11_hb2f1")
+volume_db = -20.0
 script = ExtResource("9_u8q8m")
 
 [node name="StartButton" type="AudioStreamPlayer" parent="StartScreen"]
-stream = ExtResource("11_3504a")
+stream = ExtResource("13_px1gi")
+volume_db = -20.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StartScreen" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="LevelDelay" to="." method="_on_timer_timeout"]

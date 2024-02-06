@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7ud5hmhhe5x7"
+path="res://.godot/imported/Lose_Jingle.wav-fd0c27203c5ce33c04024234a58d4c9e.sample"
+
+[deps]
+
+source_file="res://Game Sound/Lose_Jingle.wav"
+dest_files=["res://.godot/imported/Lose_Jingle.wav-fd0c27203c5ce33c04024234a58d4c9e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

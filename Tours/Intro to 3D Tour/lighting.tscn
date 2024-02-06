@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk1gown28xjgo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tumgy"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_pwls4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_eqlyk"]
+
+[node name="Lighting" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_tumgy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.515666, 0.85679, 0, -0.85679, -0.515666, 0, 1.50731, 0)
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8215, 0, 0)
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.890689, 0.454612, 0, -0.454612, 0.890689, 0, 1.15949, 1.78609)
+visible = false
+spot_angle = 4.80118
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.835664, 0.441386, 0.326871, 0, 0.595131, -0.803628, -0.549242, 0.671563, 0.49733, -1.60867, -0.056325, 0)
+mesh = SubResource("PrismMesh_pwls4")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.501041, -0.675515, 0.54096, 0.803181, -0.595734, 0, 0.322268, 0.434489, 0.841048, 2.98529, 0.10286, -0.902527)
+mesh = SubResource("CapsuleMesh_eqlyk")

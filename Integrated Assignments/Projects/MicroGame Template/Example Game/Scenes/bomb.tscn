@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfjktbdxbiwtv"]
+
+[ext_resource type="Script" path="res://Example Game/Scenes/bomb.gd" id="1_4scmg"]
+[ext_resource type="Texture2D" uid="uid://ditvs4n2f3suc" path="res://Example Game/Images/istockphoto-491745908-612x612-removebg-preview.png" id="1_pwh80"]
+[ext_resource type="AudioStream" uid="uid://dhp2pti34v5pw" path="res://Example Game/Sounds/big-pillow-hit-101877.wav" id="3_vqo58"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugtgh"]
+radius = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t16bb"]
+radius = 56.0
+height = 186.0
+
+[node name="Bomb" type="RigidBody2D"]
+gravity_scale = 0.13
+script = ExtResource("1_4scmg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pwh80")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20)
+shape = SubResource("CircleShape2D_ugtgh")
+
+[node name="Thwack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vqo58")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+process_mode = 1
+z_index = 2
+position = Vector2(0, 20)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_t16bb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
