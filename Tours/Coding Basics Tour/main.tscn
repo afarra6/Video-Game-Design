@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn8o20e42w2r4"]
+
+[ext_resource type="Script" path="res://numbers.gd" id="1_82s00"]
+[ext_resource type="Script" path="res://num_review.gd" id="2_y4u6t"]
+[ext_resource type="Script" path="res://strings_script.gd" id="3_bgh18"]
+
+[node name="main" type="Node3D"]
+
+[node name="numbers" type="Node" parent="."]
+script = ExtResource("1_82s00")
+output = "put answers here"
+
+[node name="num review" type="Node" parent="."]
+script = ExtResource("2_y4u6t")
+
+[node name="strings" type="Node" parent="."]
+script = ExtResource("3_bgh18")
+output = "Hi there"
