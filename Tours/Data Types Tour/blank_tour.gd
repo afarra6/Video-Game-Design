@@ -16,13 +16,14 @@ func _build():
 	)
 	
 	initial()
-	#title()
-	#intro_to_gdscript()
-	#numbers()
-	#mixing_nums()
-	#num_rev()
+	title()
+	intro_to_gdscript()
+	numbers()
+	mixing_nums()
+	num_rev()
 	strings()
 	concat()
+	str_rev()
 	pass
 
 # Useful methods: 
@@ -54,6 +55,7 @@ func initial():
 
 
 # Add new sections as functions below.
+#region Title screen and intro
 
 ##A title bubble, detail what the subject of the tour is here.
 func title():
@@ -63,12 +65,12 @@ func title():
 	scene_open("res://main.tscn")
 	
 	bubble_set_title("")
-	bubble_add_text([bbcode_wrap_font_size("[center]Coding Basics[/center]", 32)])
+	bubble_add_text([bbcode_wrap_font_size("[center]Data Types[/center]", 32)])
 	bubble_add_text(
 		[
 		"[center]Godot's scripting language, GDScript, provides powerful tools for \
-the creation of games, applications, or anything you can imagine. This \
-tour will go over the basics of both typical coding terms as well as how GDScript works.[/center]"
+the creation of games, applications, or anything you can imagine. When working in GDScript \
+we'll use different [b]Data Types[/b]. This tour will go over the most common[/center]"
 		]
 	)
 	complete_step()
@@ -87,12 +89,10 @@ func intro_to_gdscript():
 	
 	complete_step()
 	
-	bubble_set_title("Common Terms")
+	bubble_set_title("")
 	
+	bubble_add_text([bbcode_wrap_font_size("[center]Data Types[/center]", 32)])
 	bubble_add_text([
-		"[center]Knowing some common terms will make it much easier to follow along as we \
-go on to more complex concepts later in this tour. One foundational concept is: [/center]",
-		"[center][b]Data Types[/b][/center]",
 		"[center]Data is information, and computers can only understand certain [b]Types[/b] of data. \
 the most common data types, and the ones we'll work the most with, are: [/center]",
 		"[center][b]Integers[/b] or [color=sky blue]int[/color] are whole numbers[/center]",
@@ -111,6 +111,7 @@ the most common data types, and the ones we'll work the most with, are: [/center
 	complete_step()
 	
 
+#endregion
 #region Floats and Integers
 
 func numbers():
@@ -375,6 +376,7 @@ Select the 'num review' node in the node tree and put your answers in the inspec
 	pass
 
 #endregion
+#region Strings
 
 func strings():
 	
@@ -482,7 +484,164 @@ very useful when working with a User Interface that has values that change and v
 	])
 	
 	complete_step()
-	pass
+	
+	highlight_code(15,17)
+	bubble_add_text([
+		"[center]Let's start by giving output2 a default value.[/center]"
+	])
+	
+	bubble_add_task("Set ouput2 equal to: Concatenation", 1,
+	func hello_world(task: Task) -> int:
+		var str_node = EditorInterface.get_edited_scene_root().find_child("strings")
+		if str_node.output2 == "Concatenation":
+			print(str_node.output2)
+			return 1
+		else:
+			return 0
+		)
+	
+	complete_step()
+	
+	highlight_controls([interface.bottom_button_output])
+	
+	bubble_add_text([
+		"[center]Let's check the Output in the debugger. We can print to the ouput by using the print() [b]Method[/b]. This will be discussed in a later tour. There's no need to add a print() method, this has been done for you.[/center]"
+	])
+	
+	complete_step()
+	
+	highlight_code(15,17)
+	bubble_add_text([
+		"[center]We can see that we're currently outputting the value being stored in output2! \
+Let's do some concatenation now.[/center]",
+		"[center]Hint: Remember, we can concatenate strings using the [b]+[/b] operator[/center]"
+	])
+	
+	bubble_add_task("Concatenate this String to the end of Concatenation: stitches", 1,
+	func hello_world(task: Task) -> int:
+		var str_node = EditorInterface.get_edited_scene_root().find_child("strings")
+		if str_node.output2 == "Concatenationstitches":
+			print(str_node.output2)
+			return 1
+		else:
+			return 0
+		)
+	
+	complete_step()
+	
+	
+	highlight_code(15,17)
+	bubble_add_text([
+		"[center]Oh no something isn't quite right, look at the output. Both of our strings have smashed together. \
+This is because we haven't concatenated any spaces between the strings. Let's go ahead and concatenate a space between Concatenation and stitches. [/center]",
+		"[center]Important!: Remember, spaces are considered characters as well in a string![/center]"
+	])
+	
+	bubble_add_task("Concatenate concatenate a space between 'Concatenation' and 'stitches'", 1,
+	func hello_world(task: Task) -> int:
+		var str_node = EditorInterface.get_edited_scene_root().find_child("strings")
+		if str_node.output2 == "Concatenation stitches":
+			print(str_node.output2)
+			return 1
+		else:
+			return 0
+		)
+	
+	complete_step()
+	
+	
+	highlight_code(15,17)
+	bubble_add_text([
+		"[center]That's better! Concatenation is a powerful tool but, as you saw, \
+if we're not careful it can have unintended consequences. Now, let's review![/center]"
+	])
+	
+	complete_step()
+	
+	
+
+func str_rev():
+	
+	highlight_controls([interface.scene_dock, interface.inspector_dock])
+	bubble_add_text([
+		"[center]Select the 'strings review' node in the scene tree and answer the questions in the inspector.[/center]"
+	])
+	highlight_controls([interface.inspector_dock, interface.scene_dock])
+	bubble_add_task("Question 1: What are [color=sky blue]Strings[/color] made of:
+		A: Numbers
+		B: Characters
+		C: Data
+		D: Booleans", 1,
+	func string_quiz(task: Task) -> int:
+		EditorInterface.get_inspector()
+		var num_node = EditorInterface.get_edited_scene_root().find_child("strings review")
+		if num_node.question_one == "B" or num_node.question_one == "b":
+			return 1
+		else:
+			return 0
+	)
+	
+	complete_step()
+	
+	highlight_controls([interface.inspector_dock])
+	bubble_add_task("Question 2: What is it called when we 'stitch' two [color=sky blue]Strings[/color] together", 1,
+	func string_quiz(task: Task) -> int:
+		EditorInterface.get_inspector()
+		var num_node = EditorInterface.get_edited_scene_root().find_child("strings review")
+		if num_node.question_two == "Concatenation" or num_node.question_two == "concatenation":
+			return 1
+		else:
+			return 0
+	)
+	
+	complete_step()
+	
+	highlight_controls([interface.inspector_dock])
+	bubble_add_task("Question 3: Spaces are characters. T/F", 1,
+	func string_quiz(task: Task) -> int:
+		EditorInterface.get_inspector()
+		var num_node = EditorInterface.get_edited_scene_root().find_child("strings review")
+		if num_node.question_three == "t" or num_node.question_three == "T":
+			return 1
+		else:
+			return 0
+	)
+	
+	complete_step()
+	
+	highlight_controls([interface.inspector_dock])
+	bubble_add_task("Question 4: All [color=sky blue]Strings[/color] have these around them: 
+		A: Brackets
+		B: Question Marks
+		C: Addition symbols
+		D: Quotation Marks", 1,
+	func string_quiz(task: Task) -> int:
+		EditorInterface.get_inspector()
+		var num_node = EditorInterface.get_edited_scene_root().find_child("strings review")
+		if num_node.question_four == "D" or num_node.question_four == "d":
+			return 1
+		else:
+			return 0
+	)
+	
+	complete_step()
+	
+	highlight_controls([interface.inspector_dock])
+	bubble_add_task("Question 5: What operator is used to concatenate [color=sky blue]Strings[/color]? Hint: write the symbol, not the name of the operator", 1,
+	func string_quiz(task: Task) -> int:
+		EditorInterface.get_inspector()
+		var num_node = EditorInterface.get_edited_scene_root().find_child("strings review")
+		if num_node.question_five == "+":
+			return 1
+		else:
+			return 0
+	)
+	
+	complete_step()
+	
+	
+
+#endregion
 
 
 
@@ -491,10 +650,7 @@ very useful when working with a User Interface that has values that change and v
 
 
 
-
-
-
-
+#region Variables and other concepts
 
 func vars():
 	#highlight_controls([interface.main_screen])
@@ -670,3 +826,5 @@ to it. Think of [b]Properties[/b] as nouns or adjectives and [b]Methods[/b] as v
 	complete_step()
 	
 	
+
+#endregion

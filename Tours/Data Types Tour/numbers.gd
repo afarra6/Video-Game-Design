@@ -9,7 +9,7 @@ class_name NumTour
 func _process(_delta):
 	
 	output = "put answers here"
-	pass
+	
 
 
 

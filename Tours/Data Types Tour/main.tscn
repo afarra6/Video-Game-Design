@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn8o20e42w2r4"]
+[gd_scene load_steps=5 format=3 uid="uid://dn8o20e42w2r4"]
 
 [ext_resource type="Script" path="res://numbers.gd" id="1_82s00"]
 [ext_resource type="Script" path="res://num_review.gd" id="2_y4u6t"]
 [ext_resource type="Script" path="res://strings_script.gd" id="3_bgh18"]
+[ext_resource type="Script" path="res://strings_review.gd" id="4_m1l5q"]
 
 [node name="main" type="Node3D"]
 
@@ -16,3 +17,7 @@ script = ExtResource("2_y4u6t")
 [node name="strings" type="Node" parent="."]
 script = ExtResource("3_bgh18")
 output = "Hi there"
+output2 = "Concatenationstitches"
+
+[node name="strings review" type="Node" parent="."]
+script = ExtResource("4_m1l5q")
