@@ -645,11 +645,6 @@ func str_rev():
 
 
 
-
-
-
-
-
 #region Variables and other concepts
 
 func vars():
