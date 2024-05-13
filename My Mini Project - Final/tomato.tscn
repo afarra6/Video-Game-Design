@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://u53nx5tevgnx"]
+
+[ext_resource type="Script" path="res://Scripts/Food.gd" id="1_48gr3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h3weu"]
+radius = 28.0179
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlj21"]
+bg_color = Color(0.894118, 0.458824, 0.337255, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="Tomato" type="RigidBody2D"]
+script = ExtResource("1_48gr3")
+food_type = "tomato"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_h3weu")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -29.0
+offset_top = -27.0
+offset_right = 29.0
+offset_bottom = 31.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xlj21")
+metadata/_edit_use_anchors_ = true
