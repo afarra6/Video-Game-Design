@@ -21,3 +21,4 @@ output2 = "Concatenationstitches"
 
 [node name="strings review" type="Node" parent="."]
 script = ExtResource("4_m1l5q")
+question_one = "Hello"

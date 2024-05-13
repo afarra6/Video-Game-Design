@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn8o20e42w2r4"]
+
+[ext_resource type="Script" path="res://var_examples.gd" id="1_bm464"]
+[ext_resource type="Script" path="res://export variables.gd" id="2_7w6q1"]
+[ext_resource type="Script" path="res://Quiz 1.gd" id="3_jljfw"]
+
+[node name="main" type="Node3D"]
+
+[node name="variables example" type="Node" parent="."]
+script = ExtResource("1_bm464")
+output = 100.1
+
+[node name="export variables" type="Node" parent="."]
+script = ExtResource("2_7w6q1")
+
+[node name="Quiz 1" type="Node" parent="."]
+script = ExtResource("3_jljfw")
