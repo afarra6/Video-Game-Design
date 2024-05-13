@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://b43of2hkkxqqm"]
+
+[ext_resource type="Script" path="res://Boiler.gd" id="1_0icx2"]
+[ext_resource type="PackedScene" uid="uid://u53nx5tevgnx" path="res://tomato.tscn" id="1_oymr3"]
+[ext_resource type="PackedScene" uid="uid://dxpaevm7p1yr6" path="res://grabber.tscn" id="2_yinsg"]
+[ext_resource type="PackedScene" uid="uid://cslncu0ivpssu" path="res://bread.tscn" id="3_cfqep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31ihi"]
+size = Vector2(22, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltkvh"]
+size = Vector2(191, 140)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g1adg"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8xy05"]
+a = Vector2(-1, -233)
+b = Vector2(0, 2000)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rbwp4"]
+font_size = 32
+
+[node name="main" type="Node2D"]
+
+[node name="Pot ColorRect" type="ColorRect" parent="."]
+z_index = 10
+offset_left = 447.0
+offset_top = 452.0
+offset_right = 699.0
+offset_bottom = 646.0
+color = Color(0.670588, 0.670588, 0.670588, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pot ColorRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pot ColorRect/StaticBody2D"]
+position = Vector2(12, 96)
+shape = SubResource("RectangleShape2D_31ihi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pot ColorRect/StaticBody2D"]
+position = Vector2(241, 96)
+shape = SubResource("RectangleShape2D_31ihi")
+
+[node name="Boiler" type="Area2D" parent="Pot ColorRect"]
+script = ExtResource("1_0icx2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pot ColorRect/Boiler"]
+position = Vector2(125.5, 121)
+shape = SubResource("RectangleShape2D_ltkvh")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(228, 648)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape2D_g1adg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
+position = Vector2(-228, -413)
+shape = SubResource("SegmentShape2D_8xy05")
+
+[node name="Grabber" parent="." instance=ExtResource("2_yinsg")]
+position = Vector2(356, 186)
+
+[node name="Bread" parent="." instance=ExtResource("3_cfqep")]
+position = Vector2(311, 344)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 733.0
+offset_top = 27.0
+offset_right = 1116.0
+offset_bottom = 598.0
+text = "Store the food added
+Respawn the added food
+
+1 1 2 - Pizza
+1 1 1 - Tomato Sauce
+2 1 2 - Meatball sub"
+label_settings = SubResource("LabelSettings_rbwp4")
+
+[node name="Tomato4" parent="." instance=ExtResource("1_oymr3")]
+position = Vector2(352, 482)
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(248, 280)
+
+[connection signal="body_entered" from="Pot ColorRect/Boiler" to="Pot ColorRect/Boiler" method="_on_body_entered"]
