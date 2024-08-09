@@ -13,10 +13,9 @@ This course is constructed with the assumption that it will be divided into 2 pa
     * Introduction to core 2D concepts in Godot
     * Introduction to GDScript
     * Covering Game Design concepts: Aesthetics, Genres, Graphics, and Mechanics
-    * Brief overview of 3D concepts
+    * Introduction to frequently used coding patterns in Game Design ie.: State Machines, Singletons
     * Culminates in a collective "micro-game" project
 * Second Semester: Large Scale Group Project
-    * Introduction of more abstract concepts: Singletons, State Machines
     * Students design and build a large scale (ie. more than 1 screen) game in groups
     * Exposure to advanced tools: Plugins, Particle Effects, Ray Casting, etc.
     * Students deliver an "alpha" version (mid-semester) and a "beta" or "release" version (end of semester)
@@ -28,7 +27,44 @@ At the end of this course students will have:
 * Created a "Capstone" level project that shows profeciency in a high-level coding language
 * A well documented progression through their project, including pseudo-code and early problem solving
 
-While it is expected that students taking this course have previous coding experience, much of the early material covers foundational coding concepts. Every effort is being made to make the class accessible to students of varying coding experience.
+While it is expected that students taking this course have previous coding experience, much of the early material covers foundational coding concepts. Every effort is being made to make the class accessible to students of varying levels of coding experience.
+
+
+# Tours
+
+These tours use GDQuest's Godot Tours framework (https://github.com/GDQuest/GDTour). Tours can be used as in-engine assignments or as refreshers for students. These are intended to be self directed, with each tour including at least one quiz that can be checked by a teacher after completion. Currently, the following tours are in a complete state:
+
+* Intro to 3D
+* Data Types
+* PhysicsBodies
+
+In-progress:
+
+* Variables
+* Object-Oriented Programming
+
+Future tour topics:
+
+* Conditionals
+* Functions
+* Sound
+* Animation
+
+If there is a topic that you/your students would like covered please submit an issue to this repository!
+
+
+# Projects
+
+This course is designed as a Project Based Learning course, and as such has three main projects for the first semester (two guided and one self-directed). All of these should be completed individually by each student:
+
+* Basket Catch
+* Asteroids
+* Micro-games
+
+The second half of this course is a semester long group project. A more thorough rubric will be posted in this repository at a later date.
+
+
+# WARNING: Many of the assignments in this course are being migrated over to the Tours format, the below section is being kept to ease transition but will not be updated.
 
 # Coding assignments
 
@@ -72,8 +108,3 @@ This is a catch all category for assignments and projects that require students 
 * etc*
 
 Certain integrated assignments are only text prompts, such as end of term projects. These categories are not meant to be followed chronologically. Teachers should grab assignments as the topics appear in their curriculum/class progress.
-
-
-# Future plans and tours
-
-Currently many of the assignments are being migrated over to an in-engine tour format, utilizing GDQuest's godot-tours plugin. These will be able to provide a more guided introduction to concepts in the Godot engine. 
