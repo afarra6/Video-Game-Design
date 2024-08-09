@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dj185yqsis6sr"]
+
+[ext_resource type="Script" path="res://addons/godot_tours/godot_tour_entry.gd" id="1_rq5a3"]
+
+[resource]
+script = ExtResource("1_rq5a3")
+title = "Object Oriented Programming"
+is_free = false
+is_locked = false
+tour_path = "res://oop_tour.gd"

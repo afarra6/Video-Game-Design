@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn8o20e42w2r4"]
+
+[ext_resource type="Script" path="res://Tour Assets/pbquiz.gd" id="1_33ma0"]
+
+[node name="main" type="Node3D"]
+script = ExtResource("1_33ma0")

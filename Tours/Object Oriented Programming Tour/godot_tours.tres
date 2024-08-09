@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://ddpx74qdvx3dp"]
+
+[ext_resource type="Script" path="res://addons/godot_tours/godot_tour_list.gd" id="1_jcgwy"]
+[ext_resource type="Resource" uid="uid://dj185yqsis6sr" path="res://tour_template.tres" id="2_ohcfg"]
+[ext_resource type="Script" path="res://addons/godot_tours/godot_tour_entry.gd" id="2_wh1da"]
+
+[sub_resource type="Resource" id="Resource_gyyon"]
+script = ExtResource("2_wh1da")
+title = "tour"
+is_free = false
+is_locked = false
+tour_path = "res://addons/godot_tours/tour.gd"
+
+[resource]
+script = ExtResource("1_jcgwy")
+tours = [ExtResource("2_ohcfg"), SubResource("Resource_gyyon")]
