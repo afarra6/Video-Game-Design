@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameNames" load_steps=2 format=3 uid="uid://vws1narntfn3"]
+
+[ext_resource type="Script" path="res://MiscAssets/GameNames.gd" id="1_1pk8g"]
+
+[resource]
+script = ExtResource("1_1pk8g")
+array = Array[String](["demo"])

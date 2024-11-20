@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://sj8e57duah3r"
-path="res://.godot/imported/Jersey15-Regular.ttf-883351086c75ff94281592d22ac775ad.fontdata"
+uid="uid://c5nya6skib7a2"
+path="res://.godot/imported/Fake Identity.ttf-4a9078e26ad276cfebb11121c25bc9b2.fontdata"
 
 [deps]
 
-source_file="res://MiscAssets/Jersey15-Regular.ttf"
-dest_files=["res://.godot/imported/Jersey15-Regular.ttf-883351086c75ff94281592d22ac775ad.fontdata"]
+source_file="res://demo/fonts/Fake Identity.ttf"
+dest_files=["res://.godot/imported/Fake Identity.ttf-4a9078e26ad276cfebb11121c25bc9b2.fontdata"]
 
 [params]
 

@@ -2,7 +2,7 @@ extends Control
 
 
 
-@onready var progress_bar = $ProgressBar
+@onready var progress_bar = $CanvasLayer/ProgressBar
 @onready var animation_player = $AnimationPlayer
 
 var win_condition = false

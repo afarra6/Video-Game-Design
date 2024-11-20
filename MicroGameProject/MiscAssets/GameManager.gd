@@ -22,11 +22,11 @@ var win_lose = true
 @onready var fade_in_options = SceneManager.create_options(fade_in_speed, fade_in_pattern, fade_in_smoothness, fade_in_inverted)
 @onready var general_options = SceneManager.create_general_options(color, timeout, clickable, add_to_back)
 
+@onready var games = load("res://game_names.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -43,8 +43,9 @@ func game_over():
 
 func next_game():
 	
+	var new_game = games.array[randi_range(0, len(games.array) - 1)]
 	
-	SceneManager.change_scene("new_level", fade_out_options, fade_in_options, general_options)
+	SceneManager.change_scene(new_game, fade_out_options, fade_in_options, general_options)
 	
 	
 
