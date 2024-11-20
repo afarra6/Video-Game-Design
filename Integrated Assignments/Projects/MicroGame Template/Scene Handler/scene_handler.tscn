@@ -113,6 +113,8 @@ shadow_color = Color(0, 0, 0, 0.972549)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6hgv"]
 shader = ExtResource("2_r1bdv")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3vlcq"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkff7"]
 bg_color = Color(0.752941, 0.572549, 0.203922, 0.615686)
 corner_radius_top_left = 100
@@ -121,8 +123,6 @@ corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 expand_margin_left = 5.0
 expand_margin_top = 20.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3vlcq"]
 
 [node name="Scene Handler" type="Node"]
 script = ExtResource("1_qpkbv")
@@ -238,10 +238,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_a5ch8")
 theme_override_font_sizes/font_size = 80
-theme_override_styles/normal = ExtResource("5_ek4ra")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3vlcq")
 theme_override_styles/hover = ExtResource("5_ek4ra")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qkff7")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3vlcq")
+theme_override_styles/normal = ExtResource("5_ek4ra")
 text = "START"
 metadata/_edit_use_anchors_ = true
 

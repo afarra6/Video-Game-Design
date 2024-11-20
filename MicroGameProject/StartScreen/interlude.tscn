@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8nbriuyuyvps"]
+
+[ext_resource type="Script" path="res://StartScreen/interlude.gd" id="1_c27mx"]
+[ext_resource type="FontFile" uid="uid://sj8e57duah3r" path="res://MiscAssets/Jersey15-Regular.ttf" id="2_bld8c"]
+[ext_resource type="Texture2D" uid="uid://cgyi5gja8rx6a" path="res://MiscAssets/led-heart-1.png.png" id="3_5hpts"]
+[ext_resource type="Shader" uid="uid://btuvycfqj308y" path="res://MiscAssets/heartshifter.tres" id="3_n786b"]
+[ext_resource type="AudioStream" uid="uid://c4m5nou4120f1" path="res://MiscAssets/win-jingle.wav" id="5_i8t16"]
+[ext_resource type="AudioStream" uid="uid://bohp8amop1286" path="res://MiscAssets/lose-jingle.wav" id="6_7d3ii"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_500em"]
+font = ExtResource("2_bld8c")
+font_size = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3oyh6"]
+shader = ExtResource("3_n786b")
+shader_parameter/Offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgojr"]
+shader = ExtResource("3_n786b")
+shader_parameter/Offset = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfxyr"]
+shader = ExtResource("3_n786b")
+shader_parameter/Offset = 40.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7qks6"]
+shader = ExtResource("3_n786b")
+shader_parameter/Offset = 60.0
+
+[node name="Interlude" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c27mx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 216.0
+offset_right = 664.0
+offset_bottom = 281.0
+text = "READY?"
+label_settings = SubResource("LabelSettings_500em")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Hearts" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -20.0
+offset_right = 304.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 29
+alignment = 1
+
+[node name="Heart" type="TextureRect" parent="Hearts"]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_3oyh6")
+layout_mode = 2
+texture = ExtResource("3_5hpts")
+
+[node name="Heart2" type="TextureRect" parent="Hearts"]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_xgojr")
+layout_mode = 2
+texture = ExtResource("3_5hpts")
+
+[node name="Heart3" type="TextureRect" parent="Hearts"]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_jfxyr")
+layout_mode = 2
+texture = ExtResource("3_5hpts")
+
+[node name="Heart4" type="TextureRect" parent="Hearts"]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_7qks6")
+layout_mode = 2
+texture = ExtResource("3_5hpts")
+
+[node name="WinJingle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_i8t16")
+
+[node name="LoseJingle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7d3ii")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

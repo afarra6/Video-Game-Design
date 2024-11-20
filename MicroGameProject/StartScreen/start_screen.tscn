@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://rrnvw7kqemi4"]
+
+[ext_resource type="Script" path="res://StartScreen/start_screen.gd" id="1_kc432"]
+[ext_resource type="AudioStream" uid="uid://5j5r42q64rc4" path="res://MiscAssets/vgd_micro-game-start-music-intro.wav" id="2_y6y1v"]
+[ext_resource type="AudioStream" uid="uid://ci6lpgosgf7h5" path="res://MiscAssets/vgd_micro-game-start-music-loop.wav" id="3_amy4j"]
+[ext_resource type="AudioStream" uid="uid://cp0g5yc5h0vq6" path="res://MiscAssets/ba-ding.wav" id="4_5wwmi"]
+[ext_resource type="Material" uid="uid://367bxs133tth" path="res://GameOver/noisy-color.tres" id="5_8qupi"]
+
+[node name="Start Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kc432")
+scene = "interlude"
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_y6y1v")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_amy4j")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5wwmi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -15
+material = ExtResource("5_8qupi")
+layout_mode = 0
+offset_right = 1271.0
+offset_bottom = 692.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 443.0
+offset_top = 298.0
+offset_right = 682.0
+offset_bottom = 394.0
+text = "START"
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

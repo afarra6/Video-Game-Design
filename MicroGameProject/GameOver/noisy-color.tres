@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://367bxs133tth"]
+
+[ext_resource type="Shader" uid="uid://2qi1xtek0d54" path="res://GameOver/game_over_screen.tres" id="1_0un2d"]
+
+[resource]
+shader = ExtResource("1_0un2d")

@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxv20x4lvtl8n"]
+
+[ext_resource type="Script" path="res://GameOver/Game Over Screen.gd" id="1_5uwqr"]
+[ext_resource type="AudioStream" uid="uid://brd85i0rhj04x" path="res://MiscAssets/drum-loop.wav" id="2_g82ge"]
+[ext_resource type="LabelSettings" uid="uid://dfv5vsekub1k1" path="res://MiscAssets/jersey.tres" id="2_vmged"]
+[ext_resource type="AudioStream" uid="uid://bohp8amop1286" path="res://MiscAssets/lose-jingle.wav" id="3_a7fou"]
+[ext_resource type="Material" uid="uid://367bxs133tth" path="res://GameOver/noisy-color.tres" id="5_s5lng"]
+
+[node name="Game Over Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5uwqr")
+
+[node name="Score Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 124.0
+offset_right = 1153.0
+offset_bottom = 253.0
+text = "Total Score: "
+label_settings = ExtResource("2_vmged")
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_g82ge")
+volume_db = -8.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a7fou")
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -6
+material = ExtResource("5_s5lng")
+layout_mode = 0
+offset_right = 1161.0
+offset_bottom = 664.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 393.0
+offset_top = 316.0
+offset_right = 728.0
+offset_bottom = 479.0
+text = "TRY AGAIN?"
+
+[connection signal="finished" from="AudioStreamPlayer2" to="." method="_on_audio_stream_player_2_finished"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

@@ -16,5 +16,3 @@ func _process(delta):
 		pressed = true
 	
 	pass
-
-

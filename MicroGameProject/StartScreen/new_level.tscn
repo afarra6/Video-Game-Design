@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwc72iuy880ve"]
+
+[ext_resource type="PackedScene" uid="uid://byke8p77i82no" path="res://GameTimer/game_timer.tscn" id="1_gp7v8"]
+
+[node name="new level" type="Node2D"]
+
+[node name="GameTimer" parent="." instance=ExtResource("1_gp7v8")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1150.0
+offset_bottom = 640.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 4
+instruction_text = "Go!"

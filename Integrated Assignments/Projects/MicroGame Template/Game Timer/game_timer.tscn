@@ -250,10 +250,10 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/StartTimer"]
 process_mode = 3
-autoplay = "Start"
 libraries = {
 "": SubResource("AnimationLibrary_x15xf")
 }
+autoplay = "Start"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0
