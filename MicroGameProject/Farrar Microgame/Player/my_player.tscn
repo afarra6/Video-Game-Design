@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://iuvcs05sognk"]
+
+[ext_resource type="Texture2D" uid="uid://bn1sdpkteg1dh" path="res://icon.svg" id="1_ceefh"]
+[ext_resource type="Script" path="res://Farrar Microgame/Player/my_player.gd" id="1_xueaf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ue13g"]
+radius = 32.0
+height = 130.0
+
+[node name="MyPlayer" type="CharacterBody2D"]
+script = ExtResource("1_xueaf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ceefh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ue13g")

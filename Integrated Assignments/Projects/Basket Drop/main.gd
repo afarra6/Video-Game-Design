@@ -3,7 +3,7 @@ extends TextureRect
 @export var time_low = 0.5
 @export var time_high = 1.5
 
-@export var fruits = [preload("res://Fruits/apple.tscn"),preload("res://Fruits/bananas.tscn"),preload("res://Fruits/cherries.tscn")]
+@export var fruits : Array[PackedScene]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

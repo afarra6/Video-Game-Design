@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dlo8v6ka8eup3"]
 
-[ext_resource type="Texture2D" uid="uid://x6uqoj18cayb" path="res://Background/background.jpg" id="1_dy13a"]
+[ext_resource type="PackedScene" uid="uid://kwchiii84kvp" path="res://Fruits/apple.tscn" id="2_mnr0s"]
 [ext_resource type="Script" path="res://main.gd" id="2_n74ed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3x1bp"]
@@ -9,8 +9,8 @@ size = Vector2(1142.5, 20)
 [node name="Main" type="TextureRect"]
 offset_right = 1151.0
 offset_bottom = 651.0
-texture = ExtResource("1_dy13a")
 script = ExtResource("2_n74ed")
+fruits = Array[PackedScene]([ExtResource("2_mnr0s")])
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
